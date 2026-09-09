@@ -71,9 +71,9 @@ src/
 ### Authentication
 | Method | Endpoint | Access | Status |
 | --- | --- | --- | --- |
-| POST | `/api/auth/register` | Public | Not yet implemented |
-| POST | `/api/auth/login` | Public | Not yet implemented |
-| GET | `/api/auth/profile` | Authenticated | Not yet implemented |
+| POST | `/api/auth/register` | Public | ✅ Implemented |
+| POST | `/api/auth/login` | Public | ✅ Implemented |
+| GET | `/api/auth/profile` | Authenticated | ✅ Implemented |
 
 ### Packages
 | Method | Endpoint | Access | Status |
@@ -118,7 +118,7 @@ Each feature is built on its own `feature/<name>` branch, pushed for review/merg
 
 ## Roadmap
 
-1. Auth (register/login/profile) + JWT
+1. ✅ Auth (register/login/profile) + JWT
 2. Travel Packages (CRUD)
 3. Bookings
 4. Visa Requests

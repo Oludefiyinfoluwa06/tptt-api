@@ -17,8 +17,9 @@ app.get("/api/health", (req, res) => {
   res.status(200).json({ status: "ok" });
 });
 
+app.use("/api/auth", require("./routes/auth.routes"));
+
 // Route mounts (added incrementally, one per feature):
-// app.use("/api/auth", require("./routes/auth.routes"));
 // app.use("/api/packages", require("./routes/package.routes"));
 // app.use("/api/bookings", require("./routes/booking.routes"));
 // app.use("/api/visa", require("./routes/visa.routes"));
