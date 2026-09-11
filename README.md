@@ -95,10 +95,10 @@ src/
 ### Visa Requests
 | Method | Endpoint | Access | Status |
 | --- | --- | --- | --- |
-| POST | `/api/visa` | Customer | Not yet implemented |
-| GET | `/api/visa/my-requests` | Customer | Not yet implemented |
-| GET | `/api/visa` | Admin | Not yet implemented |
-| PATCH | `/api/visa/:id/status` | Admin | Not yet implemented |
+| POST | `/api/visa` | Customer | ✅ Implemented |
+| GET | `/api/visa/my-requests` | Customer | ✅ Implemented |
+| GET | `/api/visa` | Admin | ✅ Implemented |
+| PATCH | `/api/visa/:id/status` | Admin | ✅ Implemented |
 
 ### Documents
 | Method | Endpoint | Access | Status |
@@ -121,6 +121,6 @@ Each feature is built on its own `feature/<name>` branch, pushed for review/merg
 1. ✅ Auth (register/login/profile) + JWT
 2. ✅ Travel Packages (CRUD)
 3. ✅ Bookings
-4. Visa Requests
+4. ✅ Visa Requests
 5. Documents (Cloudinary upload)
 6. Notifications
