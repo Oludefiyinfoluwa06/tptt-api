@@ -78,11 +78,11 @@ src/
 ### Packages
 | Method | Endpoint | Access | Status |
 | --- | --- | --- | --- |
-| GET | `/api/packages` | Public | Not yet implemented |
-| GET | `/api/packages/:id` | Public | Not yet implemented |
-| POST | `/api/packages` | Admin | Not yet implemented |
-| PUT | `/api/packages/:id` | Admin | Not yet implemented |
-| DELETE | `/api/packages/:id` | Admin | Not yet implemented |
+| GET | `/api/packages` | Public | ✅ Implemented |
+| GET | `/api/packages/:id` | Public | ✅ Implemented |
+| POST | `/api/packages` | Admin | ✅ Implemented |
+| PUT | `/api/packages/:id` | Admin | ✅ Implemented |
+| DELETE | `/api/packages/:id` | Admin | ✅ Implemented |
 
 ### Bookings
 | Method | Endpoint | Access | Status |
@@ -119,7 +119,7 @@ Each feature is built on its own `feature/<name>` branch, pushed for review/merg
 ## Roadmap
 
 1. ✅ Auth (register/login/profile) + JWT
-2. Travel Packages (CRUD)
+2. ✅ Travel Packages (CRUD)
 3. Bookings
 4. Visa Requests
 5. Documents (Cloudinary upload)
