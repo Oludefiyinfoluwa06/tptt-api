@@ -87,10 +87,10 @@ src/
 ### Bookings
 | Method | Endpoint | Access | Status |
 | --- | --- | --- | --- |
-| POST | `/api/bookings` | Customer | Not yet implemented |
-| GET | `/api/bookings/my-bookings` | Customer | Not yet implemented |
-| GET | `/api/bookings` | Admin | Not yet implemented |
-| PATCH | `/api/bookings/:id/status` | Admin | Not yet implemented |
+| POST | `/api/bookings` | Customer | ✅ Implemented |
+| GET | `/api/bookings/my-bookings` | Customer | ✅ Implemented |
+| GET | `/api/bookings` | Admin | ✅ Implemented |
+| PATCH | `/api/bookings/:id/status` | Admin | ✅ Implemented |
 
 ### Visa Requests
 | Method | Endpoint | Access | Status |
@@ -120,7 +120,7 @@ Each feature is built on its own `feature/<name>` branch, pushed for review/merg
 
 1. ✅ Auth (register/login/profile) + JWT
 2. ✅ Travel Packages (CRUD)
-3. Bookings
+3. ✅ Bookings
 4. Visa Requests
 5. Documents (Cloudinary upload)
 6. Notifications
