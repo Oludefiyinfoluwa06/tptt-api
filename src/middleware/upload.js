@@ -13,7 +13,9 @@ const storage = multer.memoryStorage();
 
 function fileFilter(req, file, cb) {
   if (!ALLOWED_MIME_TYPES.includes(file.mimetype)) {
-    return cb(new Error("Unsupported file type. Allowed: JPEG, PNG, WEBP, PDF"));
+    const err = new Error("Unsupported file type. Allowed: JPEG, PNG, WEBP, PDF");
+    err.statusCode = 400;
+    return cb(err);
   }
   cb(null, true);
 }

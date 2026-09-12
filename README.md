@@ -103,8 +103,8 @@ src/
 ### Documents
 | Method | Endpoint | Access | Status |
 | --- | --- | --- | --- |
-| POST | `/api/documents/upload` | Customer | Not yet implemented |
-| GET | `/api/documents/:visaRequestId` | Customer/Admin | Not yet implemented |
+| POST | `/api/documents/upload` | Customer | ✅ Implemented |
+| GET | `/api/documents/:visaRequestId` | Customer/Admin | ✅ Implemented |
 
 ### Notifications
 | Method | Endpoint | Access | Status |
@@ -122,5 +122,5 @@ Each feature is built on its own `feature/<name>` branch, pushed for review/merg
 2. ✅ Travel Packages (CRUD)
 3. ✅ Bookings
 4. ✅ Visa Requests
-5. Documents (Cloudinary upload)
+5. ✅ Documents (Cloudinary upload)
 6. Notifications

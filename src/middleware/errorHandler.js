@@ -11,6 +11,11 @@ function errorHandler(err, req, res, next) {
     message = `Invalid ${err.path}: ${err.value}`;
   }
 
+  if (err.name === "MulterError") {
+    statusCode = 400;
+    message = err.code === "LIMIT_FILE_SIZE" ? "File is too large (max 10MB)" : err.message;
+  }
+
   console.error(err);
 
   res.status(statusCode).json({
