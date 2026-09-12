@@ -109,8 +109,9 @@ src/
 ### Notifications
 | Method | Endpoint | Access | Status |
 | --- | --- | --- | --- |
-| GET | `/api/notifications` | Authenticated | Not yet implemented |
-| PATCH | `/api/notifications/:id/read` | Authenticated | Not yet implemented |
+| GET | `/api/notifications` | Authenticated | ✅ Implemented |
+| PATCH | `/api/notifications/:id/read` | Authenticated | ✅ Implemented |
+| POST | `/api/notifications` | Admin | ✅ Implemented (send a notification to a user) |
 
 ## Branch Workflow
 
@@ -123,4 +124,4 @@ Each feature is built on its own `feature/<name>` branch, pushed for review/merg
 3. ✅ Bookings
 4. ✅ Visa Requests
 5. ✅ Documents (Cloudinary upload)
-6. Notifications
+6. ✅ Notifications
