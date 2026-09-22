@@ -37,6 +37,18 @@ async function uploadDocument(req, res, next) {
   }
 }
 
+async function getAllDocuments(req, res, next) {
+  try {
+    const documents = await Document.find()
+      .populate("userId", "fullname email")
+      .populate("visaRequestId", "country visaType status")
+      .sort({ createdAt: -1 });
+    res.status(200).json({ documents });
+  } catch (err) {
+    next(err);
+  }
+}
+
 async function getDocuments(req, res, next) {
   try {
     const { visaRequestId } = req.params;
@@ -58,4 +70,4 @@ async function getDocuments(req, res, next) {
   }
 }
 
-module.exports = { uploadDocument, getDocuments };
+module.exports = { uploadDocument, getAllDocuments, getDocuments };

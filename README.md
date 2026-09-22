@@ -105,6 +105,7 @@ src/
 | Method | Endpoint | Access | Status |
 | --- | --- | --- | --- |
 | POST | `/api/documents/upload` | Customer | ✅ Implemented |
+| GET | `/api/documents` | Admin | ✅ Implemented |
 | GET | `/api/documents/:visaRequestId` | Customer/Admin | ✅ Implemented |
 
 ### Notifications
