@@ -74,6 +74,7 @@ src/
 | POST | `/api/auth/register` | Public | ✅ Implemented |
 | POST | `/api/auth/login` | Public | ✅ Implemented |
 | GET | `/api/auth/profile` | Authenticated | ✅ Implemented |
+| GET | `/api/auth/users` | Admin | ✅ Implemented (list all users, for the Admin Dashboard) |
 
 ### Packages
 | Method | Endpoint | Access | Status |

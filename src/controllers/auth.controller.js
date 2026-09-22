@@ -8,6 +8,7 @@ function toPublicUser(user) {
     email: user.email,
     phone: user.phone,
     role: user.role,
+    createdAt: user.createdAt,
   };
 }
 
@@ -53,4 +54,13 @@ async function getProfile(req, res, next) {
   }
 }
 
-module.exports = { register, login, getProfile };
+async function getUsers(req, res, next) {
+  try {
+    const users = await User.find().sort({ createdAt: -1 });
+    res.status(200).json({ users: users.map(toPublicUser) });
+  } catch (err) {
+    next(err);
+  }
+}
+
+module.exports = { register, login, getProfile, getUsers };
