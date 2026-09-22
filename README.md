@@ -111,6 +111,7 @@ src/
 | Method | Endpoint | Access | Status |
 | --- | --- | --- | --- |
 | GET | `/api/notifications` | Authenticated | ✅ Implemented |
+| GET | `/api/notifications/sent` | Admin | ✅ Implemented (all notifications sent, for the Admin Dashboard) |
 | PATCH | `/api/notifications/:id/read` | Authenticated | ✅ Implemented |
 | POST | `/api/notifications` | Admin | ✅ Implemented (send a notification to a user) |
 
