@@ -4,6 +4,7 @@ const validate = require("../middleware/validate");
 const { protect, authorize } = require("../middleware/auth");
 const {
   getMyNotifications,
+  getSentNotifications,
   markAsRead,
   sendNotification,
 } = require("../controllers/notification.controller");
@@ -11,6 +12,8 @@ const {
 const router = express.Router();
 
 router.get("/", protect, getMyNotifications);
+
+router.get("/sent", protect, authorize("admin"), getSentNotifications);
 
 router.patch("/:id/read", protect, markAsRead);
 

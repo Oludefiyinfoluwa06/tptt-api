@@ -12,6 +12,17 @@ async function getMyNotifications(req, res, next) {
   }
 }
 
+async function getSentNotifications(req, res, next) {
+  try {
+    const notifications = await Notification.find()
+      .populate("userId", "fullname email")
+      .sort({ createdAt: -1 });
+    res.status(200).json({ notifications });
+  } catch (err) {
+    next(err);
+  }
+}
+
 async function markAsRead(req, res, next) {
   try {
     const notification = await Notification.findOneAndUpdate(
@@ -46,4 +57,4 @@ async function sendNotification(req, res, next) {
   }
 }
 
-module.exports = { getMyNotifications, markAsRead, sendNotification };
+module.exports = { getMyNotifications, getSentNotifications, markAsRead, sendNotification };
