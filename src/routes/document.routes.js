@@ -1,9 +1,9 @@
 const express = require("express");
 const { body, param } = require("express-validator");
 const validate = require("../middleware/validate");
-const { protect } = require("../middleware/auth");
+const { protect, authorize } = require("../middleware/auth");
 const upload = require("../middleware/upload");
-const { uploadDocument, getDocuments } = require("../controllers/document.controller");
+const { uploadDocument, getAllDocuments, getDocuments } = require("../controllers/document.controller");
 
 const router = express.Router();
 
@@ -18,6 +18,8 @@ router.post(
   validate,
   uploadDocument
 );
+
+router.get("/", protect, authorize("admin"), getAllDocuments);
 
 router.get(
   "/:visaRequestId",
