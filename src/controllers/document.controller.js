@@ -1,10 +1,7 @@
 const cloudinary = require("../config/cloudinary");
 const Document = require("../models/Document");
 const VisaRequest = require("../models/VisaRequest");
-
-function bufferToDataUri(file) {
-  return `data:${file.mimetype};base64,${file.buffer.toString("base64")}`;
-}
+const bufferToDataUri = require("../utils/bufferToDataUri");
 
 async function uploadDocument(req, res, next) {
   try {
