@@ -1,21 +1,36 @@
 const mongoose = require("mongoose");
 
-async function connectDB() {
-  const uri = process.env.MONGO_URI;
+mongoose.connection.on("connected", () => {
+  console.log(`MongoDB connected: ${mongoose.connection.host}`);
+});
 
-  if (!uri) {
-    throw new Error("MONGO_URI is not set in the environment");
+mongoose.connection.on("error", (err) => {
+  console.error(`MongoDB connection error: ${err.message}`);
+});
+
+// Cached across invocations so warm serverless containers reuse the same
+// connection instead of reconnecting on every request.
+let connectionPromise = null;
+
+async function connectDB() {
+  if (mongoose.connection.readyState === 1) {
+    return mongoose.connection;
   }
 
-  mongoose.connection.on("connected", () => {
-    console.log(`MongoDB connected: ${mongoose.connection.host}`);
-  });
+  if (!connectionPromise) {
+    const uri = process.env.MONGO_URI;
 
-  mongoose.connection.on("error", (err) => {
-    console.error(`MongoDB connection error: ${err.message}`);
-  });
+    if (!uri) {
+      throw new Error("MONGO_URI is not set in the environment");
+    }
 
-  await mongoose.connect(uri);
+    connectionPromise = mongoose.connect(uri).catch((err) => {
+      connectionPromise = null;
+      throw err;
+    });
+  }
+
+  return connectionPromise;
 }
 
 module.exports = connectDB;

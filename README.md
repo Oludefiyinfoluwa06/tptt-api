@@ -71,46 +71,50 @@ src/
 ### Authentication
 | Method | Endpoint | Access | Status |
 | --- | --- | --- | --- |
-| POST | `/api/auth/register` | Public | Not yet implemented |
-| POST | `/api/auth/login` | Public | Not yet implemented |
-| GET | `/api/auth/profile` | Authenticated | Not yet implemented |
+| POST | `/api/auth/register` | Public | ✅ Implemented |
+| POST | `/api/auth/login` | Public | ✅ Implemented |
+| GET | `/api/auth/profile` | Authenticated | ✅ Implemented |
+| GET | `/api/auth/users` | Admin | ✅ Implemented (list all users, for the Admin Dashboard) |
 
 ### Packages
 | Method | Endpoint | Access | Status |
 | --- | --- | --- | --- |
-| GET | `/api/packages` | Public | Not yet implemented |
-| GET | `/api/packages/:id` | Public | Not yet implemented |
-| POST | `/api/packages` | Admin | Not yet implemented |
-| PUT | `/api/packages/:id` | Admin | Not yet implemented |
-| DELETE | `/api/packages/:id` | Admin | Not yet implemented |
+| GET | `/api/packages` | Public | ✅ Implemented |
+| GET | `/api/packages/:id` | Public | ✅ Implemented |
+| POST | `/api/packages` | Admin | ✅ Implemented (multipart/form-data, optional `image` file upload to Cloudinary) |
+| PUT | `/api/packages/:id` | Admin | ✅ Implemented (multipart/form-data; omit `image` to keep the existing one) |
+| DELETE | `/api/packages/:id` | Admin | ✅ Implemented |
 
 ### Bookings
 | Method | Endpoint | Access | Status |
 | --- | --- | --- | --- |
-| POST | `/api/bookings` | Customer | Not yet implemented |
-| GET | `/api/bookings/my-bookings` | Customer | Not yet implemented |
-| GET | `/api/bookings` | Admin | Not yet implemented |
-| PATCH | `/api/bookings/:id/status` | Admin | Not yet implemented |
+| POST | `/api/bookings` | Customer | ✅ Implemented |
+| GET | `/api/bookings/my-bookings` | Customer | ✅ Implemented |
+| GET | `/api/bookings` | Admin | ✅ Implemented |
+| PATCH | `/api/bookings/:id/status` | Admin | ✅ Implemented |
 
 ### Visa Requests
 | Method | Endpoint | Access | Status |
 | --- | --- | --- | --- |
-| POST | `/api/visa` | Customer | Not yet implemented |
-| GET | `/api/visa/my-requests` | Customer | Not yet implemented |
-| GET | `/api/visa` | Admin | Not yet implemented |
-| PATCH | `/api/visa/:id/status` | Admin | Not yet implemented |
+| POST | `/api/visa` | Customer | ✅ Implemented |
+| GET | `/api/visa/my-requests` | Customer | ✅ Implemented |
+| GET | `/api/visa` | Admin | ✅ Implemented |
+| PATCH | `/api/visa/:id/status` | Admin | ✅ Implemented |
 
 ### Documents
 | Method | Endpoint | Access | Status |
 | --- | --- | --- | --- |
-| POST | `/api/documents/upload` | Customer | Not yet implemented |
-| GET | `/api/documents/:visaRequestId` | Customer/Admin | Not yet implemented |
+| POST | `/api/documents/upload` | Customer | ✅ Implemented |
+| GET | `/api/documents` | Admin | ✅ Implemented |
+| GET | `/api/documents/:visaRequestId` | Customer/Admin | ✅ Implemented |
 
 ### Notifications
 | Method | Endpoint | Access | Status |
 | --- | --- | --- | --- |
-| GET | `/api/notifications` | Authenticated | Not yet implemented |
-| PATCH | `/api/notifications/:id/read` | Authenticated | Not yet implemented |
+| GET | `/api/notifications` | Authenticated | ✅ Implemented |
+| GET | `/api/notifications/sent` | Admin | ✅ Implemented (all notifications sent, for the Admin Dashboard) |
+| PATCH | `/api/notifications/:id/read` | Authenticated | ✅ Implemented |
+| POST | `/api/notifications` | Admin | ✅ Implemented (send a notification to a user) |
 
 ## Branch Workflow
 
@@ -118,9 +122,9 @@ Each feature is built on its own `feature/<name>` branch, pushed for review/merg
 
 ## Roadmap
 
-1. Auth (register/login/profile) + JWT
-2. Travel Packages (CRUD)
-3. Bookings
-4. Visa Requests
-5. Documents (Cloudinary upload)
-6. Notifications
+1. ✅ Auth (register/login/profile) + JWT
+2. ✅ Travel Packages (CRUD)
+3. ✅ Bookings
+4. ✅ Visa Requests
+5. ✅ Documents (Cloudinary upload)
+6. ✅ Notifications
