@@ -81,8 +81,8 @@ src/
 | --- | --- | --- | --- |
 | GET | `/api/packages` | Public | ✅ Implemented |
 | GET | `/api/packages/:id` | Public | ✅ Implemented |
-| POST | `/api/packages` | Admin | ✅ Implemented |
-| PUT | `/api/packages/:id` | Admin | ✅ Implemented |
+| POST | `/api/packages` | Admin | ✅ Implemented (multipart/form-data, optional `image` file upload to Cloudinary) |
+| PUT | `/api/packages/:id` | Admin | ✅ Implemented (multipart/form-data; omit `image` to keep the existing one) |
 | DELETE | `/api/packages/:id` | Admin | ✅ Implemented |
 
 ### Bookings

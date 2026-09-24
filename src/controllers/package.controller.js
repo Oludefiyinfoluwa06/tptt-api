@@ -1,4 +1,14 @@
+const cloudinary = require("../config/cloudinary");
 const Package = require("../models/Package");
+const bufferToDataUri = require("../utils/bufferToDataUri");
+
+async function uploadPackageImage(file) {
+  const uploadResult = await cloudinary.uploader.upload(bufferToDataUri(file), {
+    folder: "tptt/packages",
+    resource_type: "image",
+  });
+  return uploadResult.secure_url;
+}
 
 async function listPackages(req, res, next) {
   try {
@@ -23,7 +33,8 @@ async function getPackage(req, res, next) {
 
 async function createPackage(req, res, next) {
   try {
-    const { title, destination, description, duration, price, image } = req.body;
+    const { title, destination, description, duration, price } = req.body;
+    const image = req.file ? await uploadPackageImage(req.file) : undefined;
     const pkg = await Package.create({ title, destination, description, duration, price, image });
     res.status(201).json({ package: pkg });
   } catch (err) {
@@ -33,12 +44,15 @@ async function createPackage(req, res, next) {
 
 async function updatePackage(req, res, next) {
   try {
-    const { title, destination, description, duration, price, image } = req.body;
-    const pkg = await Package.findByIdAndUpdate(
-      req.params.id,
-      { title, destination, description, duration, price, image },
-      { new: true, runValidators: true }
-    );
+    const { title, destination, description, duration, price } = req.body;
+    const update = { title, destination, description, duration, price };
+    if (req.file) {
+      update.image = await uploadPackageImage(req.file);
+    }
+    const pkg = await Package.findByIdAndUpdate(req.params.id, update, {
+      new: true,
+      runValidators: true,
+    });
     if (!pkg) {
       return res.status(404).json({ message: "Package not found" });
     }
